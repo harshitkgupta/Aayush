@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+<definition name="def" path="/layoutHome.jsp">
+        <put name="header" value="/headerHome.jsp" />
+         <put name="footer" value="/footer.jsp" />
+        <put name="ads"   value="/Add.jsp" />
+        <put name="news"   value="/News.jsp" />
+        <put name="body"   value="/homeLogin.jsp" />
+  </definition>
+  <definition name="def3" extends="def">
+        <put name="body"   value="/register.jsp" />
+  </definition>
+    <definition name="def4" extends="def">
+        <put name="body"   value="/login.jsp" />
+  </definition>
+  <definition name="def5" extends="def">
+ <put name="body"   value="/LogOut.jsp" />
+  </definition>
+  <definition name="def8" extends="def">
+     <put name="body"   value="/Aboutus.jsp" />
+      </definition>
+      <definition name="def9" extends="def">
+     <put name="body"   value="/Faq.jsp" />
+      </definition>
+
+ <definition name="def1"  path="/layoutDoctor.jsp">
+        <put name="header" value="/headerDoct.jsp" />
+     
+
+        <put name="footer" value="/footer.jsp" />
+        <put name="ads"   value="/Add.jsp" />
+        <put name="news"   value="/News.jsp" />
+ <put name="search"   value="/searchAyush.jsp" />
+       <put name="leaf"   value="/leafAyush.jsp" />
+        <put name="update"   value="/updateAyush.jsp" />
+    </definition>
+
+<definition name="def2" path="/layoutUser.jsp">
+       <put name="header" value="/headerUser.jsp" />
+      
+
+        <put name="footer" value="/footer.jsp" />
+        <put name="ads"   value="/Add.jsp" />
+        <put name="news"   value="/News.jsp" />
+ <put name="search"   value="/searchAyush.jsp" />
+       
+<put name="update"   value="/updateAyush.jsp" />
+    </definition>
+   <definition name="def6" path="/layoutProfile.jsp">
+     <put name="header" value="/headerDoct.jsp" />
+        <put name="footer" value="/footer.jsp" />
+        <put name="ads"   value="/Add.jsp" />
+        <put name="news"   value="/News.jsp" />
+       <put name="profile"   value="/profileUpdateDoct.jsp" />
+   </definition>
+   <definition name="def12" extends="def6">
+       <put name="profile" value="followers.jsp"/>
+   </definition>
+   <definition name="def13" extends="def6">
+       <put name="profile" value="circle.jsp"/>
+   </definition>
+<definition name="def7" extends="def6">
+    <put name="header" value="/headerUser.jsp" />
+  <put name="profile"   value="/profileUpdateUser.jsp" />
+</definition>
+<definition name="def10" extends="def6">
+    <put name="header" value="/headerUser.jsp" />
+  <put name="profile"   value="/following.jsp" />
+</definition>
+<definition name="def11" extends="def6">
+   <put name="profile" value="/profileDoct.jsp"></put>
+   </definition>
+   <definition name="def21" extends="def7">
+   <put name="profile" value="/profileUser.jsp"></put>
+</definition>
+</tiles-definitions>

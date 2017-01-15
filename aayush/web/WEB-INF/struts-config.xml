@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="leafBean" type="hp.leafBean"/>
+        <form-bean name="updateUserBean" type="hp.updateUserBean"/>
+        <form-bean name="updateDoctBean" type="hp.updateDoctBean"/>
+        <form-bean name="UserRegBean" type="hp.UserRegBean"/>
+        <form-bean name="DoctorRegBean" type="hp.DoctorRegBean"/>
+       <form-bean name="loginBean" type="hp.loginBean"/>
+ </form-beans>
+     <global-exceptions>
+  </global-exceptions>
+<global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+</global-forwards>
+
+ <action-mappings>
+   <action path="/Home" forward="def"/>
+   <action path="/doctor" forward="def1"/>
+  <action path="/user" forward="def2"/>
+  <action path="/register" forward="def3"/>
+   <action path="/login" forward="def4"/>
+  
+   <action path="/updateDoct" forward="def6"/>
+   <action path="/updateUser" forward="def7"/>
+   <action path="/about" forward="def8"/>
+   <action path="/faq" forward="def9"/>
+   <action path="/following" forward="def10"/>
+   <action path="/followers" forward="def12"/>
+   <action path="/circle" forward="def13"/>
+
+  <action input="/login.jsp" name="loginBean" path="/abc" scope="request" type="hp.loginAction" validate="true">
+            <forward name="doctor" path="def1"/>
+            <forward name="user" path="def2"/>
+            <forward name="admin" path="def0"/>
+  </action>
+
+
+        <action input="/profileUpdateDoct.jsp" name="updateDoctBean" path="/pqr" scope="request" type="hp.updateDoctAction">
+             <forward name="profileDoct" path="def11"/>
+             </action>
+        <action input="/RegUser.jsp" name="UserRegBean" path="/wxyz" scope="request" type="hp.UserRegAction" validate="true">
+             <forward name="user" path="def2"/>
+                       </action>
+        <action input="/RegDoctor.jsp" name="DoctorRegBean" path="/xyz" scope="request" type="hp.DoctorRegAction" validate="true">
+            <forward name="doctor" path="def1"/>
+                      </action>
+        <action input="/profileUpdateUser.jsp" name="updateUserBean" path="/pqrs" scope="request" type="hp.updateUserAction">
+        <forward name="profileUser" path="def21"/>
+        </action>
+        <action input="/leafAyush.jsp" name="leafBean" path="/lmn" scope="request" type="hp.leafAction"/>
+            
+            <action input="/searchAyush.jsp" name="searchbean" path="/srch" scope="request" type="hp.searchaction">
+                <forward name="searchResult" path="/searchResult.jsp"/>
+
+            </action>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
